@@ -1,6 +1,7 @@
 # This file contains the main program.
 
 from package.message_printers import *
+from package.editors import *
 
 # MAIN function.
 def main() -> None:
@@ -13,41 +14,54 @@ def main() -> None:
         command: str = input("Command: ")
         # Split the command to get its elements.
         elements: list(str) = command.split()
+        # Store the main command in a variable.
+        main_command: str  = elements[0]
 
         # Perform matching operations.
-        match elements[0][0]:
+        #   Check the first char to understand wether it's a general
+        #   or editing command.
+        match main_command[0]:
             case "-":
                 # Calculate the number of elements.
                 n_elements: int = len(elements)
 
-                # If less than 3 
+                # If less than 3 arguments are inputted, print
+                # an error and ask for a command again.
                 if n_elements < 3:
                     print("Too few arguments.")
                     continue
 
-                match elements[0]:
+                # Assign every element to a variable for readability.
+                if n_elements == 3:
+                    option = "default"
+                    old_image_path: str = elements[1]
+                    new_image_path: str = elements[2]
+                else:
+                    option: str = elements[1]
+                    old_image_path: str = elements[2]
+                    new_image_path: str = elements[3]
+
+                match main_command:
                     case "-mr":
-                        match elements[1]:
-                            case "-h":
-                                ...
+                        match option:
+                            case "-h" | "default":
+                                mirror_horizontally(old_image_path, \
+                                                    new_image_path)
                             case "-v":
-                                ...
-                            case _:
-                                ...
+                                mirror_vertically(old_image_path, \
+                                                  new_image_path)
                     case "-bw":
                         ...
                     case "-rt":
-                        match elements[1]:
-                            case "-90":
+                        match option:
+                            case "-90" | "default":
                                 ...
                             case "-270":
-                                ...
-                            case _:
                                 ...
                     case _:
                         print("Command not found.")
             case "/":
-                match command:
+                match main_command:
                     case "/help":
                         print_header()
                     case "/information":
