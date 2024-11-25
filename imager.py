@@ -33,7 +33,7 @@ def main() -> None:
 
                 # Assign every element to a variable for readability.
                 if n_elements == 3:
-                    option = "default"
+                    option: str = "default"
                     old_image_path: str = elements[1]
                     new_image_path: str = elements[2]
                 else:
@@ -51,13 +51,13 @@ def main() -> None:
                                 mirror_vertically(old_image_path, \
                                                   new_image_path)
                     case "-bw":
-                        ...
+                        make_bw(old_image_path, new_image_path)
                     case "-rt":
                         match option:
                             case "-90" | "default":
-                                ...
+                                rotate_90(old_image_path, new_image_path)
                             case "-270":
-                                ...
+                                rotate_270(old_image_path, new_image_path)
                     case _:
                         print("Command not found.")
             case "/":

@@ -31,3 +31,16 @@ def print_header() -> None:
     print("|     /exit                 - Close this program                 |")
     print("|                                                                |")
     print("+----------------------------------------------------------------+")
+
+# This function prints information about the project.
+def print_information() -> None:
+    print()
+
+    print("+----------------------- INFORMATION ------------------------+")
+    print("|                                                            |")
+    print("|  Author:                                                   |")
+    print("|    Nicolo Alesi                                            |")
+    print("|                                                            |")
+    print("|  License: MIT License                                      |")
+    print("|                                                            |")
+    print("+------------------------------------------------------------+")
