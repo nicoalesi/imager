@@ -18,7 +18,7 @@ def main() -> None:
         main_command: str  = elements[0]
 
         # Perform matching operations.
-        #   Check the first char to understand wether it's a general
+        #   Check the first char to understand whether it's a general
         #   or editing command.
         match main_command[0]:
             case "-":
