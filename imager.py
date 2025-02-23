@@ -15,7 +15,7 @@ def main() -> None:
         # Split the command to get its elements.
         elements: list(str) = command.split()
         # Store the main command in a variable.
-        main_command: str  = elements[0]
+        main_command: str = elements[0]
 
         # Perform matching operations.
         #   Check the first char to understand whether it's a general
